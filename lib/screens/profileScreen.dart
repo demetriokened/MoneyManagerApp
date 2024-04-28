@@ -28,7 +28,7 @@ class ProfileScreen extends StatelessWidget {
                   height: 50,
                   child: Center(
                     child: Text(
-                      'Change Username',
+                      'Mudar nome',
                       style: TextStyle(
                           color: Colors.redAccent,
                           fontSize: 20,

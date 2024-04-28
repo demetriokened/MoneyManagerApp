@@ -34,7 +34,7 @@ class Details extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
-                    Icons.currency_rupee_rounded,
+                    Icons.currency_exchange,
                     color: this.data.isIncome
                         ? Colors.greenAccent
                         : Colors.redAccent,
@@ -66,7 +66,7 @@ class Details extends StatelessWidget {
                                   padding:
                                       const EdgeInsets.only(left: 20, top: 20),
                                   child: Text(
-                                    'Paid By :',
+                                    'Recebeu de :',
                                     style: TextStyle(
                                         color: Colors.grey,
                                         fontWeight: FontWeight.w600,
@@ -77,7 +77,7 @@ class Details extends StatelessWidget {
                                   padding:
                                       const EdgeInsets.only(left: 20, top: 20),
                                   child: Text(
-                                    'Paid To :',
+                                    'Pagou para :',
                                     style: TextStyle(
                                         color: Colors.grey,
                                         fontWeight: FontWeight.w600,
@@ -107,7 +107,7 @@ class Details extends StatelessWidget {
                             padding: const EdgeInsets.only(
                                 left: 20, top: 20, bottom: 20),
                             child: Text(
-                              'Note :',
+                              'Nota :',
                               style: TextStyle(
                                   color: Colors.grey,
                                   fontWeight: FontWeight.w600,
@@ -137,7 +137,7 @@ class Details extends StatelessWidget {
                             padding: const EdgeInsets.only(
                                 left: 20, top: 20, bottom: 20),
                             child: Text(
-                              'Date :',
+                              'Data :',
                               style: TextStyle(
                                   color: Colors.grey,
                                   fontWeight: FontWeight.w600,
@@ -167,7 +167,7 @@ class Details extends StatelessWidget {
                             padding: const EdgeInsets.only(
                                 left: 20, top: 20, bottom: 20),
                             child: Text(
-                              'Time :',
+                              'Hora :',
                               style: TextStyle(
                                   color: Colors.grey,
                                   fontWeight: FontWeight.w600,
@@ -219,7 +219,7 @@ class Details extends StatelessWidget {
                         width: 10,
                       ),
                       Text(
-                        'Remove Transaction',
+                        'Excluir transação',
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w600,

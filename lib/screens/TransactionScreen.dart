@@ -22,7 +22,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
           iconTheme: IconThemeData(color: Colors.grey),
           backgroundColor: const Color.fromARGB(255, 17, 17, 17),
           title: Text(
-            'Transaction History',
+            'Histórico de Transações',
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
           ),
         ),
@@ -55,7 +55,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
                                 Row(
                                   children: [
                                     Icon(
-                                      Icons.currency_rupee_rounded,
+                                      Icons.currency_exchange,
                                       size: 26,
                                       color: controller
                                               .TransactionList[index].isIncome
@@ -94,7 +94,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
                                 top: 0, right: 20, left: 20, bottom: 10),
                             child: Container(
                               child: Text(
-                                'Name : ${controller.TransactionList[index].Tname}',
+                                'Nome : ${controller.TransactionList[index].Tname}',
                                 style: TextStyle(
                                     fontSize: 17,
                                     fontWeight: FontWeight.w600,
@@ -109,7 +109,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
                             padding: const EdgeInsets.only(
                                 left: 20, right: 20, bottom: 10),
                             child: Text(
-                              'Note : ${controller.TransactionList[index].TNote}',
+                              'Nota : ${controller.TransactionList[index].TNote}',
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   color:
@@ -126,7 +126,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Time - ${controller.TransactionList[index].Ttime}',
+                                  'Hora - ${controller.TransactionList[index].Ttime}',
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       color: controller

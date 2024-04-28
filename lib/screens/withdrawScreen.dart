@@ -141,7 +141,7 @@ class WithdrawScreen extends StatelessWidget {
                 child: Container(
                   alignment: Alignment.center,
                   child: Text(
-                    'Deduzir da carteira',
+                    'Adicionar gasto',
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w600,
@@ -166,7 +166,7 @@ class WithdrawScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 17, 17, 17),
         title: Text(
-          'Deduzir da carteira',
+          'Novo Gasto',
           style: TextStyle(
               color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
         ),

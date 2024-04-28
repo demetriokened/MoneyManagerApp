@@ -71,7 +71,7 @@ class IncomeScreen extends StatelessWidget {
                             BorderSide(color: Colors.greenAccent, width: 2)),
                     label: Padding(
                       padding: const EdgeInsets.only(left: 0),
-                      child: Text('Paid By'),
+                      child: Text('Recebeu de'),
                     ),
                     labelStyle: TextStyle(
                         color: Colors.greenAccent, fontWeight: FontWeight.w600),
@@ -79,7 +79,7 @@ class IncomeScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         borderSide:
                             BorderSide(color: Colors.greenAccent, width: 2)),
-                    hintText: 'Abhishek Jain',
+                    hintText: 'Fulano',
                     hintStyle: TextStyle(
                         color: Color.fromARGB(255, 34, 34, 34),
                         fontWeight: FontWeight.w600),
@@ -110,14 +110,14 @@ class IncomeScreen extends StatelessWidget {
                         borderSide: BorderSide(color: Colors.grey, width: 2)),
                     label: Padding(
                       padding: const EdgeInsets.only(left: 0),
-                      child: Text('Note'),
+                      child: Text('Nota'),
                     ),
                     labelStyle: TextStyle(
                         color: Colors.grey, fontWeight: FontWeight.w600),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(color: Colors.grey, width: 2)),
-                    hintText: 'Paid for Dinner',
+                    hintText: 'Trabalho...',
                     hintStyle: TextStyle(
                         color: Color.fromARGB(255, 34, 34, 34),
                         fontWeight: FontWeight.w600),
@@ -143,7 +143,7 @@ class IncomeScreen extends StatelessWidget {
                 child: Container(
                   alignment: Alignment.center,
                   child: Text(
-                    'Add to Wallet',
+                    'Adicionar na carteira',
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w600,
@@ -168,7 +168,7 @@ class IncomeScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 17, 17, 17),
         title: Text(
-          'Add To Wallet',
+          'Nova Entrada',
           style: TextStyle(
               color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
         ),

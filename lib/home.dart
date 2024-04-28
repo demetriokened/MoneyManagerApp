@@ -69,10 +69,6 @@ class _HomeState extends State<Home> {
                     text: 'Home',
                   ),
                   GButton(
-                    icon: CupertinoIcons.graph_circle,
-                    text: 'Insights',
-                  ),
-                  GButton(
                     icon: Icons.history,
                     text: 'Transações',
                   ),

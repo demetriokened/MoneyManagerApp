@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 100,
                         width: double.maxFinite,
                         child: Text(
-                          'No Transactions to Show',
+                          'Você ainda não têm transações.',
                           style: TextStyle(
                               color: const Color.fromARGB(255, 83, 83, 83),
                               fontSize: 20,
@@ -154,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Transactions',
+            'Transações',
             style: TextStyle(
                 color: const Color.fromARGB(255, 225, 225, 225),
                 fontSize: 26,
@@ -183,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(40)),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
-                    child: Text('See All',
+                    child: Text('Ver tudo',
                         style: TextStyle(
                             color: (controller.TransactionList.length > 4)
                                 ? Colors.greenAccent
@@ -281,7 +281,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 30),
                     child: Text(
-                      'Withdraw',
+                      'Saída',
                       style: TextStyle(
                           color: Colors.grey,
                           fontSize: 18,
@@ -318,7 +318,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 30),
                     child: Text(
-                      'Income',
+                      'Entrada',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
@@ -367,7 +367,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Spennd',
+                    'MoneyManager',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 22,
@@ -384,7 +384,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.only(left: 20, top: 30),
               child: Text(
-                'Balance',
+                'Saldo',
                 style: TextStyle(
                     fontFamily: 'SourceCodePro',
                     fontSize: 14,
@@ -397,7 +397,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Row(
                 children: [
                   Icon(
-                    Icons.currency_rupee_rounded,
+                    Icons.currency_exchange,
                     size: 30,
                     color: (controller.balance >= 0)
                         ? Colors.greenAccent

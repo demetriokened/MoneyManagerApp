@@ -78,7 +78,7 @@ class Splash extends StatelessWidget {
               height: 30,
             ),
             Text(
-              'Spennd',
+              'MoneyManagerApp',
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 36,
@@ -120,7 +120,7 @@ class OnBoarding extends StatelessWidget {
                   height: 50,
                 ),
                 Text(
-                  'What Should We \nCall You?',
+                  'Qual o seu nome?',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,
@@ -168,8 +168,8 @@ class OnBoarding extends StatelessWidget {
                           behavior: SnackBarBehavior.floating,
                           backgroundColor: Colors.transparent,
                           content: AwesomeSnackbarContent(
-                            title: 'Come On !',
-                            message: 'Please Enter Your name..',
+                            title: 'Vamos lá!',
+                            message: 'Digite seu nome...',
 
                             /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
                             contentType: ContentType.failure,
@@ -189,7 +189,7 @@ class OnBoarding extends StatelessWidget {
                       width: double.maxFinite,
                       height: 60,
                       child: Text(
-                        'Next',
+                        'Avançar',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,
@@ -224,19 +224,19 @@ class _explainScreenState extends State<explainScreen> {
   ];
 
   List Headlines = [
-    'Welcome To',
-    'All your Finances in',
-    'Track Your',
-    'Be Financially'
+    'Boas vindas ao',
+    'Sua carteira em apenas',
+    'Rastreie seus',
+    'Seja'
   ];
 
-  List ColoredLines = ['Spennd', 'One Place', 'Expenses', 'Stable'];
+  List ColoredLines = ['MoneyManagerApp', 'Um App', 'Gastos', 'Estável'];
 
   List Taglines = [
-    'Plan Your Finances with Us ',
-    'Get the Big Picture of all your Transactions',
-    'Get Statistics and know what you spend on.',
-    'Lead a prosperous Life by just planning your finances Well.'
+    'Gerencie seu dinheiro de formas simples.',
+    'Visão completa do que entra e sai da sua carteira.',
+    'Saiba exatamente com o que você tem gastado.',
+    'Leve sua organização financeira para o próximo nível.'
   ];
 
   int explainIndex = 0;
@@ -376,14 +376,14 @@ class _explainScreenState extends State<explainScreen> {
                       width: double.maxFinite,
                       child: explainIndex == 3
                           ? Text(
-                              'Done',
+                              'Feito',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,
                                   fontWeight: FontWeight.w600),
                             )
                           : Text(
-                              'Next',
+                              'Avançar',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,
