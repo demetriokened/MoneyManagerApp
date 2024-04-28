@@ -1,125 +1,403 @@
-import 'package:flutter/material.dart';
+import 'dart:math';
 
-void main() {
-  runApp(const MyApp());
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:lottie/lottie.dart';
+import 'package:moneymanagerapp/controllerandmodels/TransactionController.dart';
+import 'package:moneymanagerapp/home.dart';
+
+void main() async {
+  await GetStorage.init();
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
+  TransactionController controller = Get.put(TransactionController());
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    navigatetoMain();
+  }
+
+  void navigatetoMain() async {
+    await Future.delayed(Duration(milliseconds: 5000));
+    Get.offAll(
+        () => controller.getStorage.hasData('isSeen')
+            ? (controller.getStorage.read('isSeen') == 'notDone')
+                ? explainScreen()
+                : Home()
+            : explainScreen(),
+        transition: Transition.downToUp);
+  }
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'MoneyManager',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Splash(),
+      theme: ThemeData(fontFamily: 'Poppins'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+class Splash extends StatelessWidget {
+  const Splash({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+      body: Container(
+        alignment: Alignment.bottomCenter,
+        color: Color.fromARGB(255, 11, 11, 11),
+        height: double.maxFinite,
+        width: double.maxFinite,
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+                width: 180,
+                height: 180,
+                child: Lottie.asset('assets/images/wallet2.json',
+                    repeat: false,
+                    options:
+                        LottieOptions(enableApplyingOpacityToLayers: false))),
+            SizedBox(
+              height: 30,
             ),
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+              'Spennd',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 36,
+                  fontWeight: FontWeight.w600),
+            )
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class OnBoarding extends StatelessWidget {
+  OnBoarding({super.key});
+  TextEditingController userNameController = TextEditingController();
+  TransactionController controller = Get.find();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: const Color.fromARGB(255, 13, 13, 13),
+        resizeToAvoidBottomInset: false,
+        body: SingleChildScrollView(
+          child: Container(
+            width: double.maxFinite,
+            height: double.maxFinite,
+            color: const Color.fromARGB(255, 13, 13, 13),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 90),
+                  child: Container(
+                      width: 180,
+                      child: Lottie.asset('assets/images/person.json')),
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Text(
+                  'What Should We \nCall You?',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 28,
+                      fontWeight: FontWeight.w600),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
+                  child: TextField(
+                    controller: userNameController,
+                    style: TextStyle(
+                        color: Colors.greenAccent,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600),
+                    cursorColor: Colors.greenAccent,
+                    decoration: InputDecoration(
+                        focusColor: Colors.white,
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 3)),
+                        prefixIcon: Icon(
+                          Icons.info_sharp,
+                          color: Colors.grey,
+                        ),
+                        enabled: true,
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 3)),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 2))),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, right: 30, top: 50),
+                  child: GestureDetector(
+                    onTap: () {
+                      if (userNameController.text == '') {
+                        final snackBar = SnackBar(
+                          /// need to set following properties for best effect of awesome_snackbar_content
+                          elevation: 0,
+                          behavior: SnackBarBehavior.floating,
+                          backgroundColor: Colors.transparent,
+                          content: AwesomeSnackbarContent(
+                            title: 'Come On !',
+                            message: 'Please Enter Your name..',
+
+                            /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
+                            contentType: ContentType.failure,
+                          ),
+                        );
+                        ScaffoldMessenger.of(context)
+                          ..hideCurrentSnackBar()
+                          ..showSnackBar(snackBar);
+                      } else {
+                        controller.getStorage
+                            .write('user', userNameController.text);
+                        Get.offAll(() => Home());
+                      }
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: double.maxFinite,
+                      height: 60,
+                      child: Text(
+                        'Next',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ));
+  }
+}
+
+class explainScreen extends StatefulWidget {
+  explainScreen({super.key});
+
+  @override
+  State<explainScreen> createState() => _explainScreenState();
+}
+
+class _explainScreenState extends State<explainScreen> {
+  List Lottieanims = [
+    'assets/images/page1one.json',
+    'assets/images/atm.json',
+    'assets/images/bargraph.json',
+    'assets/images/stable.json',
+  ];
+
+  List Headlines = [
+    'Welcome To',
+    'All your Finances in',
+    'Track Your',
+    'Be Financially'
+  ];
+
+  List ColoredLines = ['Spennd', 'One Place', 'Expenses', 'Stable'];
+
+  List Taglines = [
+    'Plan Your Finances with Us ',
+    'Get the Big Picture of all your Transactions',
+    'Get Statistics and know what you spend on.',
+    'Lead a prosperous Life by just planning your finances Well.'
+  ];
+
+  int explainIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          leading: IconButton(
+              onPressed: () {
+                setState(() {
+                  (explainIndex > 1) ? explainIndex-- : explainIndex = 0;
+                });
+              },
+              color: const Color.fromARGB(255, 46, 46, 46),
+              icon: Icon(
+                CupertinoIcons.back,
+                color: Colors.grey,
+                size: 26,
+              )),
+        ),
+        backgroundColor: Color.fromARGB(255, 16, 16, 16),
+        body: Container(
+            width: double.maxFinite,
+            height: double.maxFinite,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 45),
+                  child: Text.rich(
+                      textAlign: TextAlign.center,
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                              text: '${Headlines[explainIndex]}\n',
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w600)),
+                          TextSpan(
+                              text: '${ColoredLines[explainIndex]}',
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 48,
+                                  fontWeight: FontWeight.w600))
+                        ],
+                      )),
+                ),
+                Lottie.asset('${Lottieanims[explainIndex]}'),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: Container(
+                    height: 60,
+                    child: Text(
+                      '${Taglines[explainIndex]}',
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 100, right: 100, top: 30, bottom: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      AnimatedContainer(
+                        duration: Duration(milliseconds: 500),
+                        width: (explainIndex == 0) ? 40 : 10,
+                        height: 10,
+                        decoration: BoxDecoration(
+                            color: (explainIndex == 0)
+                                ? Colors.blue
+                                : Color.fromARGB(255, 68, 68, 68),
+                            borderRadius: BorderRadius.circular(40)),
+                      ),
+                      AnimatedContainer(
+                        duration: Duration(milliseconds: 500),
+                        width: (explainIndex == 1) ? 40 : 10,
+                        height: 10,
+                        decoration: BoxDecoration(
+                            color: (explainIndex == 1)
+                                ? Colors.blue
+                                : Color.fromARGB(255, 68, 68, 68),
+                            borderRadius: BorderRadius.circular(40)),
+                      ),
+                      AnimatedContainer(
+                        duration: Duration(milliseconds: 500),
+                        width: (explainIndex == 2) ? 40 : 10,
+                        height: 10,
+                        decoration: BoxDecoration(
+                            color: (explainIndex == 2)
+                                ? Colors.blue
+                                : Color.fromARGB(255, 68, 68, 68),
+                            borderRadius: BorderRadius.circular(40)),
+                      ),
+                      AnimatedContainer(
+                        duration: Duration(milliseconds: 500),
+                        width: (explainIndex == 3) ? 40 : 10,
+                        height: 10,
+                        decoration: BoxDecoration(
+                            color: (explainIndex == 3)
+                                ? Colors.blue
+                                : Color.fromARGB(255, 68, 68, 68),
+                            borderRadius: BorderRadius.circular(40)),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        (explainIndex <= 2)
+                            ? explainIndex++
+                            : (
+                                controller.getStorage.write('isSeen', 'Done'),
+                                Get.offAll(OnBoarding()),
+                                transition: Transition.rightToLeft
+                              );
+                        Transition.leftToRight;
+                      });
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 60,
+                      width: double.maxFinite,
+                      child: explainIndex == 3
+                          ? Text(
+                              'Done',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600),
+                            )
+                          : Text(
+                              'Next',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
+                  ),
+                )
+              ],
+            )),
+      ),
     );
   }
 }

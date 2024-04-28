@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:spennd/controllerandmodels/TransactionController.dart';
+import 'package:moneymanagerapp/controllerandmodels/TransactionController.dart';
 
 class TransactionScreen extends StatefulWidget {
   TransactionScreen({super.key});

@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:spennd/controllerandmodels/TransactionController.dart';
-import 'package:spennd/home.dart';
-import 'package:spennd/screens/TransactionScreen.dart';
-import 'package:spennd/screens/incomeScreen.dart';
-import 'package:spennd/screens/transactionDetails.dart';
-import 'package:spennd/screens/withdrawScreen.dart';
+import 'package:moneymanagerapp/controllerandmodels/TransactionController.dart';
+import 'package:moneymanagerapp/home.dart';
+import 'package:moneymanagerapp/screens/TransactionScreen.dart';
+import 'package:moneymanagerapp/screens/incomeScreen.dart';
+import 'package:moneymanagerapp/screens/transactionDetails.dart';
+import 'package:moneymanagerapp/screens/withdrawScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});

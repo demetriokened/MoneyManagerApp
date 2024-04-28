@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:spennd/controllerandmodels/Transactionmodel.dart';
+import 'package:moneymanagerapp/controllerandmodels/Transactionmodel.dart';
 import 'package:get_storage/get_storage.dart';
 
 class TransactionController extends GetxController {

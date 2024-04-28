@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:spennd/controllerandmodels/TransactionController.dart';
-import 'package:spennd/home.dart';
-import 'package:spennd/screens/HomeScreen.dart';
+import 'package:moneymanagerapp/controllerandmodels/TransactionController.dart';
+import 'package:moneymanagerapp/home.dart';
+import 'package:moneymanagerapp/screens/HomeScreen.dart';
 
 class IncomeScreen extends StatelessWidget {
   IncomeScreen({super.key});

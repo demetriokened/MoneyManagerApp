@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:spennd/controllerandmodels/TransactionController.dart';
-import 'package:spennd/home.dart';
-import 'package:spennd/screens/HomeScreen.dart';
+import 'package:moneymanagerapp/controllerandmodels/TransactionController.dart';
+import 'package:moneymanagerapp/home.dart';
+import 'package:moneymanagerapp/screens/homescreen.dart';
 
 class WithdrawScreen extends StatelessWidget {
   WithdrawScreen({super.key});
@@ -69,7 +69,7 @@ class WithdrawScreen extends StatelessWidget {
                             BorderSide(color: Colors.redAccent, width: 2)),
                     label: Padding(
                       padding: const EdgeInsets.only(left: 0),
-                      child: Text('Paid To'),
+                      child: Text('Pagar para'),
                     ),
                     labelStyle: TextStyle(
                         color: Colors.redAccent, fontWeight: FontWeight.w600),
@@ -77,7 +77,7 @@ class WithdrawScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         borderSide:
                             BorderSide(color: Colors.redAccent, width: 2)),
-                    hintText: 'Abhishek Jain',
+                    hintText: 'Nome do recebedor',
                     hintStyle: TextStyle(
                         color: Color.fromARGB(255, 34, 34, 34),
                         fontWeight: FontWeight.w600),
@@ -108,14 +108,14 @@ class WithdrawScreen extends StatelessWidget {
                         borderSide: BorderSide(color: Colors.grey, width: 2)),
                     label: Padding(
                       padding: const EdgeInsets.only(left: 0),
-                      child: Text('Note'),
+                      child: Text('Nota'),
                     ),
                     labelStyle: TextStyle(
                         color: Colors.grey, fontWeight: FontWeight.w600),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(color: Colors.grey, width: 2)),
-                    hintText: 'Paid for Dinner',
+                    hintText: 'Referente a um almoço',
                     hintStyle: TextStyle(
                         color: Color.fromARGB(255, 34, 34, 34),
                         fontWeight: FontWeight.w600),
@@ -141,7 +141,7 @@ class WithdrawScreen extends StatelessWidget {
                 child: Container(
                   alignment: Alignment.center,
                   child: Text(
-                    'Deduct from Wallet',
+                    'Deduzir da carteira',
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w600,
@@ -166,7 +166,7 @@ class WithdrawScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 17, 17, 17),
         title: Text(
-          'Deduct From Wallet',
+          'Deduzir da carteira',
           style: TextStyle(
               color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
         ),

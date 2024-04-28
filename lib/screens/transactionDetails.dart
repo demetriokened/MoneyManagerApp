@@ -3,10 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:spennd/controllerandmodels/TransactionController.dart';
+import 'package:moneymanagerapp/controllerandmodels/TransactionController.dart';
 
-import 'package:spennd/controllerandmodels/Transactionmodel.dart';
-import 'package:spennd/home.dart';
+import 'package:moneymanagerapp/controllerandmodels/Transactionmodel.dart';
+import 'package:moneymanagerapp/home.dart';
 
 class Details extends StatelessWidget {
   final TransactionModal data;

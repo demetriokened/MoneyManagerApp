@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:spennd/controllerandmodels/TransactionController.dart';
-import 'package:spennd/main.dart';
+import 'package:moneymanagerapp/controllerandmodels/TransactionController.dart';
+import 'package:moneymanagerapp/main.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});

@@ -2,11 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:spennd/controllerandmodels/TransactionController.dart';
-import 'package:spennd/screens/HomeScreen.dart';
-import 'package:spennd/screens/InsightsScreen.dart';
-import 'package:spennd/screens/TransactionScreen.dart';
-import 'package:spennd/screens/profileScreen.dart';
+import 'package:moneymanagerapp/controllerandmodels/TransactionController.dart';
+import 'package:moneymanagerapp/screens/HomeScreen.dart';
+import 'package:moneymanagerapp/screens/TransactionScreen.dart';
+import 'package:moneymanagerapp/screens/profileScreen.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -17,7 +16,6 @@ class Home extends StatefulWidget {
 
 List Screens = [
   HomeScreen(),
-  InsightsScreen(),
   TransactionScreen(),
   ProfileScreen()
 ];
